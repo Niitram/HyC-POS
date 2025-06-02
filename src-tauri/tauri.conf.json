@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "hyc-pos",
+  "productName": "HyC-POS",
   "version": "0.1.0",
   "identifier": "com.hyc-pos.app",
   "build": {
@@ -13,18 +13,29 @@
     "windows": [
       {
         "label": "main",
-        "title": "HyC-POS",
-        "width": 1024,
-        "height": 768,
+        "title": "HyC-POS - Sistema de Punto de Venta",
+        "width": 1280,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 768,
         "resizable": true,
         "fullscreen": false,
         "decorations": true,
         "visible": true,
-        "center": true
+        "center": true,
+        "maximized": false,
+        "alwaysOnTop": false,
+        "skipTaskbar": false
       }
     ],
     "security": {
-      "csp": null
+      "csp": "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; connect-src 'self' ws: wss:;"
+    },
+    "trayIcon": {
+      "iconPath": "icons/32x32.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false,
+      "tooltip": "HyC-POS"
     }
   },
   "bundle": {
@@ -36,6 +47,40 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
-  }
+    ],
+    "category": "Business",
+    "shortDescription": "Sistema POS para negocios",
+    "longDescription": "Sistema completo de Punto de Venta desarrollado con Tauri, React y Rust para pequeños y medianos negocios.",
+    "publisher": "HyC Development",
+    "copyright": "Copyright © 2024 HyC Development. Todos los derechos reservados.",
+    "license": "Propietario",
+    "externalBin": [],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "",
+      "wix": {
+        "language": ["es-ES", "en-US"]
+      }
+    },
+    "macOS": {
+      "frameworks": [],
+      "minimumSystemVersion": "10.13",
+      "exceptionDomain": "",
+      "signingIdentity": null,
+      "providerShortName": null,
+      "entitlements": null
+    },
+    "linux": {
+      "deb": {
+        "depends": [],
+        "priority": "optional",
+        "section": "Office"
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    }
+  },
+  "plugins": {}
 }
