@@ -1,0 +1,70 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true // Necesario para archivos de configuración, etc.
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier" // IMPORTANTE: Debe ser el último para desactivar conflictos con Prettier
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jsx-a11y"],
+  "settings": {
+    "react": {
+      "version": "detect" // Detecta automáticamente la versión de React
+    }
+  },
+  "rules": {
+    // Reglas Generales de JavaScript
+    "no-console": "warn", // Advierte sobre console.log, útil para no dejar logs olvidados
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }], // Advierte sobre variables no usadas, permite _ para ignorar
+    "eqeqeq": ["error", "always"], // Requiere === y !==
+    "no-debugger": "warn", // Advierte sobre debugger en producción
+
+    // Reglas de React
+    "react/prop-types": "warn", // Si no usas PropTypes (TypeScript las maneja mejor, o JSDoc para JS puro)
+    // Para JS puro sin TS, podrías habilitarlo: "react/prop-types": "warn"
+    "react/react-in-jsx-scope": "off", // No necesario con React 17+
+    "react/jsx-uses-react": "off", // No necesario con React 17+
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }], // Archivos JSX deben tener extensión .jsx o .js
+    "react/display-name": "warn",
+
+    // Reglas de React Hooks
+    "react-hooks/rules-of-hooks": "error", // Comprueba las reglas de los Hooks
+    "react-hooks/exhaustive-deps": "warn", // Comprueba las dependencias de efectos
+
+    // Reglas de Accesibilidad (jsx-a11y) - puedes empezar más laxo y ajustar
+    "jsx-a11y/anchor-is-valid": ["warn", { "components": ["Link"], "specialLink": ["to"] }], // Para react-router Link
+    "jsx-a11y/click-events-have-key-events": "warn", // Elementos clickeables deben ser accesibles por teclado
+    "jsx-a11y/no-static-element-interactions": "warn" // Elementos estáticos no deberían tener eventos sin un rol
+    // Puedes añadir más reglas aquí o configurar las existentes.
+    // Ejemplo: forzar comentarios JSDoc para funciones públicas
+    // "require-jsdoc": ["warn", {
+    //     "require": {
+    //         "FunctionDeclaration": true,
+    //         "MethodDefinition": true,
+    //         "ClassDeclaration": true,
+    //         "ArrowFunctionExpression": true,
+    //         "FunctionExpression": true
+    //     }
+    // }]
+  },
+  "ignorePatterns": [
+    // Patrones a ignorar por ESLint
+    "node_modules/",
+    "dist/",
+    "build/",
+    "src-tauri/target/",
+    "public/" // A menudo no necesitas linter aquí, pero si tienes JS, considera quitarlo.
+  ]
+}

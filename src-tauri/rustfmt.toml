@@ -1,0 +1,33 @@
+# src-tauri/rustfmt.toml
+# Documentación: https://rust-lang.github.io/rustfmt/
+
+# Ancho máximo de línea.
+max_width = 100
+
+# Usar tabulaciones en lugar de espacios para la indentación.
+hard_tabs = true
+
+# Número de espacios por tabulación (si hard_tabs = true).
+tab_spaces = 2
+
+# Edición de Rust. Asegúrate que coincida con tu Cargo.toml.
+edition = "2021"
+
+# Reordenar imports.
+reorder_imports = true
+
+# Agrupar `use` del mismo crate.
+group_imports = "StdExternalCrate" 
+# Agrupa std, luego crates externos, luego crate local.
+
+# No poner comentarios en una nueva línea si el ítem es muy corto.
+# comment_width = 80
+
+# Poner el cuerpo de las funciones pequeñas en una sola línea si es posible.
+# fn_single_line = false (por defecto)
+
+# Poner else en la misma línea que la llave de cierre del if.
+# control_brace_style = "AlwaysSameLine" (ya es un default razonable)
+
+# ... y muchas más opciones. Estas son un buen punto de partida.
+# Recomiendo mantenerlo simple al principio.
